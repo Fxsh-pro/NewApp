@@ -22,16 +22,14 @@ public class GoalController {
     private final GoalService goalService;
 
     @GetMapping()
-    public ResponseEntity<List<GoalDto>> getGoals() {
-        List<GoalDto> goalDto = goalService.getGoals();
+    public ResponseEntity<List<GoalDto>> getGoals(Principal principal) {
+        List<GoalDto> goalDto = goalService.getGoals(principal.getName());
         return ResponseEntity.ok(goalDto);
     }
 
     @PostMapping
     public ResponseEntity<GoalDto> createGoal(@Valid @RequestBody GoalDto goalDto, Principal principal) {
-        System.out.println(principal.getName());
-        System.out.println(goalDto);
-        GoalDto createdGoal = goalService.createGoal(goalDto);
+        GoalDto createdGoal = goalService.createGoal(goalDto, principal.getName());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdGoal);
     }
 }

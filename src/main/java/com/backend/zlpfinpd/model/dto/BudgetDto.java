@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BudgetDto {
     private Long id;
-    @NotNull
     private Long userId;
     @NotNull
     private Long goalId;

@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    @Query("SELECT t FROM Transaction t WHERE t.date >= :dateFrom AND t.date <= :dateTo")
-    List<Transaction> findTransactionsBetweenDates(LocalDateTime dateFrom, LocalDateTime dateTo);
+    @Query("SELECT t FROM Transaction t WHERE t.date >= :dateFrom AND t.date <= :dateTo AND t.user.id = :userId")
+    List<Transaction> findTransactionsBetweenDates(LocalDateTime dateFrom, LocalDateTime dateTo, Long userId);
 }

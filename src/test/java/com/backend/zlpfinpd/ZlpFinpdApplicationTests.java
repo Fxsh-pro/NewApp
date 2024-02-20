@@ -9,5 +9,4 @@ class ZlpFinpdApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

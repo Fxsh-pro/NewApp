@@ -10,15 +10,15 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class TransactionDto {
     private Long id;
-    @NotNull
     private Long userId;
     private String title;
-    private LocalDateTime date;
+    @Builder.Default
+    private LocalDateTime date = LocalDateTime.now();
     private BigDecimal amount;
     @NotNull
     private Long budgetFromId;

@@ -1,7 +1,7 @@
 package com.backend.zlpfinpd.model.dto;
 
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserRegisterRequest extends UserDto {
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
 }
